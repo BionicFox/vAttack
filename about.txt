@@ -1,0 +1,5 @@
+vAttack a game about making a virus, and stuff.
+This software is free and open-source, for license
+information view license.txt in the game's folder.
+Website: IspiraGaming.net
+Contact: vAtkGame@IspiraGaming.net
