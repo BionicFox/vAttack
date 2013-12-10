@@ -5,6 +5,7 @@ class main
 {
     public:
         main();
+        void mainMenu();
     protected:
     private:
 };

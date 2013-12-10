@@ -5,11 +5,9 @@
 #include "game.h"
 #include "main.h"
 #include "baseFunctions.h"
-#include "base64.h"
 
 using std::cout;
 using std::cin;
-using std::endl;
 using std::string;
 using std::getline;
 using std::ifstream;
