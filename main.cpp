@@ -101,9 +101,14 @@ void mainMenu()
 
             case 3:
                 //TODO: Save the game.
+                //All this does right now is tell the user that this isn't made yet and throw them at the menu after they press enter.
+                prompt("Not implemented yet, please press enter");
+                break; //So this doesn't jump to other cases.
 
             case 2:
                 //TODO: Load a game.
+                prompt("Not implemented yet, please press enter.");
+                break; //Also so this doesn't jump to other cases.
 
             case 1:
                 newGame();
