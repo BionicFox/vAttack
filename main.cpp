@@ -1,4 +1,4 @@
-//Includes.
+//Includes. | This file will handle the first load, and code fuctions.
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -15,48 +15,46 @@ using std::ifstream;
 
 void cls();
 void prompt(string tPrompt);
-void newGame();
+void newGame(int codeAmt);
 void mainMenu();
 
-//Location the user is in the game, used for labeling input.
-string currentMenu = "____LOADING____";
+//Variables and files.
+int exitCode = 0;
+string gameName = "vAttack";
+string gameVersion = "Alpha 0.1.0";
 
-//All variables.
-string gName = "vAttack";
-string gVersion = "Alpha 0.1.0";
-
-//Files.
 string line;
 ifstream information;
 
 int main()
 {
+    cout << "Loading...\n";
+    cls();
 
     mainMenu();
-
-    return 0;
+    
+    if (exitCode == 1)
+    {
+        return 0;
+    } else
+        {
+            return 1;
+        }
 }
 
 void mainMenu()
 {
-    //General input variables for the game.
     int uInp;
-
-    //Loop variables.
     int mLoop = 0;
-
-    //Menu loop.
     while (mLoop <= 10)
     {
         mLoop = 0;
-        //Main menu.
-        currentMenu = "Main";
-        cout << "Welcome to " << gName << "\nVersion: " << gVersion << "\n";
+        cout << "Welcome to " << gameName << "\nVersion: " << gameVersion << "\n";
         cout << "================================================\n";
         cout << "| 1 = New game | 2 = Load game | 3 = Save game |\n";
         cout << "|   4 = Help   |   5 = About   |   9 = Exit.   |\n";
         cout << "================================================\n";
-        cout << currentMenu << " > ";
+        cout << "Main > ";
         cin >> uInp;
 
         //Make sure the input is an int.
@@ -73,6 +71,7 @@ void mainMenu()
             case 9:
                 //Exit the game.
                 mLoop = 11;
+                exitCode = 1;
                 break;
 
             case 5:
@@ -111,7 +110,7 @@ void mainMenu()
                 break; //Also so this doesn't jump to other cases.
 
             case 1:
-                newGame();
+                newGame(10);
 
             default:
                 prompt("Not a menu item, press enter.");

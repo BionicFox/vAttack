@@ -1,4 +1,4 @@
-//Includes.
+//Includes. | This file is where all of the base game code will be.
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -21,7 +21,7 @@ void mainMenu();
 //Initialize the saves.
 int sLoop = 0;
 int amtSaves = 0;
-    
+
 //Game variables.
 int code = 0;
 int spreadRate = 0;
@@ -30,6 +30,9 @@ int stealth = 0;
 int crypter = 0;
 int optimization = 0;
 
+string gName = "vAttack";
+string gVersion = "Alpha 0.1.0";
+
 game::game()
 {
     
@@ -37,11 +40,14 @@ game::game()
     
 }
 
-void newGame()
+void newGame(int codeAmt)
 {
     //Start a new game.
     cls();
     cout << "Loading...\n";
+    
+    /* - Anything to be done behind the scenes while the game is loading should go here - */
+    code = codeAmt;
     ifstream checkSave("saves.vatk");
     
     //Check if the save exists, if it does, ask the user to overwrite it. If it doesn't, make it, and write to it.
@@ -85,8 +91,9 @@ ifchksv:    if (checkSave)
         }
     
     cout << "Save created.\n";
-    prompt("I haven't developed farther yet.");
+    prompt("Feature in progress.");
     cls();
+    
     mainMenu();
     
 }

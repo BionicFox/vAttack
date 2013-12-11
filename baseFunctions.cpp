@@ -1,4 +1,4 @@
-//Includes.
+//Includes. | This file will include base functions that will be used across most of the other source files.
 #include <fstream>
 #include <iostream>
 #include <string>
