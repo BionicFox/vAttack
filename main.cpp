@@ -31,7 +31,7 @@ ifstream information;
 
 int main()
 {
-    
+    //Run the main menu loop, and wait for instruction.
     mainMenu();
 
     return 0;
