@@ -11,5 +11,5 @@ development, the github project is the best way to do so. http://github.com/Ispi
 Changelog: [ I = in progress | + = added | * = fixed | - = removed | \ = moved | X = canceled ]
 
 0.1.0:
-I Base game functionality
+I - Base game functionality
 - Spelling/punctuation mistakes
