@@ -12,4 +12,4 @@ Changelog: [ I = in progress | + = added | * = fixed | - = removed | \ = moved |
 
 0.1.0:
 I - Base game functionality
-- Spelling/punctuation mistakes
+- - Spelling/punctuation mistakes
