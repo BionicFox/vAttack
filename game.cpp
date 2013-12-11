@@ -21,7 +21,7 @@ void mainMenu();
 //Initialize the saves.
 int sLoop = 0;
 int amtSaves = 0;
-    
+
 //Game variables.
 int code = 0;
 int spreadRate = 0;
@@ -32,9 +32,9 @@ int optimization = 0;
 
 game::game()
 {
-    
-    
-    
+
+
+
 }
 
 void newGame()
@@ -43,7 +43,7 @@ void newGame()
     cls();
     cout << "Loading...\n";
     ifstream checkSave("saves.vatk");
-    
+
     //Check if the save exists, if it does, ask the user to overwrite it. If it doesn't, make it, and write to it.
 ifchksv:    if (checkSave)
     {
@@ -83,24 +83,23 @@ ifchksv:    if (checkSave)
             createSave << "optimization:" << optimization << "\n";
             createSave.close();
         }
-    
+
     cout << "Save created.\n";
     prompt("I haven't developed farther yet.");
     cls();
     mainMenu();
-    
+
 }
 
 void saveGame()
 {
     //Save the game.
-    
-    
+
+
 }
 
 void loadGame()
 {
     //Load the game.
-    
-    
+
 }
