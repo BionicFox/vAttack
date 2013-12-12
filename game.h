@@ -5,6 +5,7 @@ class game
 {
     public:
         game();
+        void loadGame();
     protected:
     private:
 };

@@ -2,6 +2,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <sstream>
 #include "game.h"
 #include "main.h"
 #include "baseFunctions.h"
@@ -14,9 +16,9 @@ using std::ifstream;
 
 baseFunctions::baseFunctions()
 {
-    
-    
-    
+
+
+
 }
 
 void cls()

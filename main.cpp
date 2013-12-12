@@ -2,6 +2,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <sstream>
 #include "game.h"
 #include "main.h"
 #include "baseFunctions.h"
@@ -17,6 +19,7 @@ void cls();
 void prompt(string tPrompt);
 void newGame(int codeAmt);
 void mainMenu();
+void loadGame();
 
 //Variables and files.
 int exitCode = 0;
@@ -32,7 +35,7 @@ int main()
     cls();
 
     mainMenu();
-    
+
     if (exitCode == 1)
     {
         return 0;
@@ -106,7 +109,7 @@ void mainMenu()
 
             case 2:
                 //TODO: Load a game.
-                prompt("Not implemented yet, please press enter.");
+                loadGame();
                 break; //Also so this doesn't jump to other cases.
 
             case 1:
