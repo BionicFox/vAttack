@@ -1,4 +1,5 @@
 //Includes. | This file is where all of the base game code will be.
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -12,7 +13,6 @@
 using std::cout;
 using std::cin;
 using std::string;
-using std::getline;
 using std::ifstream;
 using std::ofstream;
 using std::stringstream;
@@ -21,7 +21,14 @@ using std::stringstream;
 void cls();
 void prompt(string tPrompt);
 void mainMenu();
+<<<<<<< HEAD
 void stringIntConverter(string Code, string speedOfDestruction, string spreadRate, string stealth, string crypter, string optimization);
+=======
+int input(string iPrompt, int i);
+void saveGame();
+void loadGame();
+bool fileExists(string fileExists);
+>>>>>>> upstream/master
 
 //Initialize the saves.
 int sLoop = 0;
@@ -53,47 +60,39 @@ void newGame(int codeAmt)
 
     /* - Anything to be done behind the scenes while the game is loading should go here - */
     code = codeAmt;
+<<<<<<< HEAD
     ifstream checkSave("saves.vatk");
 
     //Check if the save exists, if it does, ask the user to overwrite it. If it doesn't, make it, and write to it.
 ifchksv:    if (checkSave)
+=======
+    int getInput;
+    ofstream save("game.vatk");
+    /* - Loading area end - */
+    
+    cout << "Starting a new game will overwrite any currently saved game. Continue?\n";
+    cout << "| 1 = YES | 2 = NO |\n" << "Overwrite? > ";
+    input("Overwrite? > ", getInput);
+    
+    if (getInput == 1)
+>>>>>>> upstream/master
     {
-        int i = 0;
-        cout << "Saved game exists, overwrite it?\n";
-        cout << " 1 = YES | 2 = NO \n";
-        cout << "Overwrite? > ";
-        cin >> i;
-        if (cin.fail())
+        if (fileExists("game.vatk"))
         {
-            cls();
-            cin.clear(); cin.ignore(); cin.sync();
-            prompt("Invalid input. Press enter to continue.\n");
-            cls();
-            goto ifchksv;
+            save.close();
+            remove("game.vatk");
+            saveGame();
         } else
             {
-                if (i != 0)
-                {
-                    checkSave.close();
-                    remove("saves.vatk");
-                } else
-                    {
-                        checkSave.close();
-                        mainMenu();
-                    }
+                save.close();
+                saveGame();
             }
     } else
         {
-            checkSave.close();
-            ofstream createSave("saves.vatk");
-            createSave << "code:" << code << "\n";
-            createSave << "spreadRate:" << spreadRate << "\n";
-            createSave << "speedOfDestruction:" << speedOfDestruction << "\n";
-            createSave << "stealth:" << stealth << "\n";
-            createSave << "crypter:" << crypter << "\n";
-            createSave << "optimization:" << optimization << "\n";
-            createSave.close();
+            save.close();
+            mainMenu();
         }
+<<<<<<< HEAD
 
     cout << "Save created.\n";
     prompt("Feature in progress.");
@@ -101,17 +100,42 @@ ifchksv:    if (checkSave)
 
     mainMenu();
 
+=======
+>>>>>>> upstream/master
 }
 
 void saveGame()
 {
     //Save the game.
+<<<<<<< HEAD
 
 
+=======
+    cls();
+    cout << "Saving...\n";
+    
+    if (fileExists("game.vatk"))
+    {
+        remove("game.vatk");
+        saveGame();
+    } else
+        {
+            ofstream save("game.vatk");
+            save << "code:" << code << "\n";
+            save << "spreadRate:" << spreadRate << "\n";
+            save << "speedOfDestruction:" << speedOfDestruction << "\n";
+            save << "stealth:" << stealth << "\n";
+            save << "crypter" << crypter << "\n";
+            save << "optimization:" << optimization << "\n";
+            save.close();
+            mainMenu();
+        }
+>>>>>>> upstream/master
 }
 
 void loadGame()
 {
+<<<<<<< HEAD
     //Load the game. In developemnt by BionicFox c:
     string saveCode;
     string saveSpeedOfDestruction;
@@ -183,4 +207,8 @@ void stringIntConverter(string code, string speedOfDestruction, string spreadRat
     convert6 >> loadOptimization;
     cout << loadCode << loadSpeedOfDestruction << loadSpreadRate << loadStealth << loadCrypter << loadOptimization << "\n";
     prompt("Press enter to continue");
+=======
+    //Load the game.
+
+>>>>>>> upstream/master
 }

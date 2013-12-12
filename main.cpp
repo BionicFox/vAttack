@@ -1,4 +1,5 @@
 //Includes. | This file will handle the first load, and code fuctions.
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -22,7 +23,6 @@ void mainMenu();
 void loadGame();
 
 //Variables and files.
-int exitCode = 0;
 string gameName = "vAttack";
 string gameVersion = "Alpha 0.1.0";
 
@@ -32,9 +32,9 @@ ifstream information;
 int main()
 {
     cout << "Loading...\n";
-    cls();
 
     mainMenu();
+<<<<<<< HEAD
 
     if (exitCode == 1)
     {
@@ -43,15 +43,20 @@ int main()
         {
             return 1;
         }
+=======
+    
+    return 0;
+>>>>>>> upstream/master
 }
 
 void mainMenu()
 {
+    cls();
     int uInp;
     int mLoop = 0;
-    while (mLoop <= 10)
-    {
-        mLoop = 0;
+    
+    while (mLoop != 1)
+    {   
         cout << "Welcome to " << gameName << "\nVersion: " << gameVersion << "\n";
         cout << "================================================\n";
         cout << "| 1 = New game | 2 = Load game | 3 = Save game |\n";
@@ -64,7 +69,6 @@ void mainMenu()
         if (cin.fail())
         {
             cin.clear(); cin.ignore(); cin.sync();
-            mLoop++;
         }
 
         cls();
@@ -73,8 +77,7 @@ void mainMenu()
         {
             case 9:
                 //Exit the game.
-                mLoop = 11;
-                exitCode = 1;
+                exit(0);
                 break;
 
             case 5:
@@ -120,8 +123,6 @@ void mainMenu()
                 cls();
         }
 
-        //Continue the loop.
-        mLoop++;
     }
 
     //Make sure the file is closed before exit.
