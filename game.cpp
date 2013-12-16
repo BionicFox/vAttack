@@ -58,7 +58,7 @@ void newGame(int codeAmt)
 
     /* - Anything to be done behind the scenes while the game is loading should go here - */
     code = codeAmt;
-    ifstream checkSave("saves.vatk");
+    ifstream checkSave("game.vatk");
 
     //Check if the save exists, if it does, ask the user to overwrite it. If it doesn't, make it, and write to it.
 ifchksv:    if (checkSave)
@@ -117,7 +117,7 @@ void saveGame()
             save << "spreadRate:" << spreadRate << "\n";
             save << "speedOfDestruction:" << speedOfDestruction << "\n";
             save << "stealth:" << stealth << "\n";
-            save << "crypter" << crypter << "\n";
+            save << "crypter:" << crypter << "\n";
             save << "optimization:" << optimization << "\n";
             save.close();
             mainMenu();
@@ -143,7 +143,7 @@ void loadGame()
     switch(i)
     {
     case 1:
-        save.open("saves.vatk");
+        save.open("game.vatk");
         getline(save,saveCode);
         getline(save,saveSpeedOfDestruction);
         getline(save,saveSpreadRate);
@@ -163,7 +163,7 @@ void loadGame()
         cls();
         break;
     case 4:
-        save.open ("saves.vatk");
+        save.open ("game.vatk");
         getline(save,saveCode);
         cout << saveCode << "\n";
         save.close();
