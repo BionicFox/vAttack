@@ -39,8 +39,6 @@ void prompt(string tPrompt)
     cin.get();
     cin.ignore();
 }
-<<<<<<< HEAD
-=======
 
 int input(string iPrompt, int i)
 {
@@ -68,4 +66,3 @@ bool fileExists(string fileName)
         return 0;
     } else { return 1; }
 }
->>>>>>> upstream/master
