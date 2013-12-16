@@ -3,6 +3,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <sstream>
 #include "game.h"
 #include "main.h"
 #include "baseFunctions.h"
@@ -18,11 +20,13 @@ void cls();
 void prompt(string tPrompt);
 void newGame(int codeAmt);
 void mainMenu();
+void loadGame();
 
 //Variables and files.
 string gameName = "vAttack";
 string gameVersion = "Alpha 0.1.0";
 
+int exitCode;
 string line;
 ifstream information;
 
@@ -31,7 +35,15 @@ int main()
     cout << "Loading...\n";
 
     mainMenu();
-    
+
+    if (exitCode == 1)
+    {
+        return 0;
+    } else
+        {
+            return 1;
+        }
+
     return 0;
 }
 
@@ -40,9 +52,9 @@ void mainMenu()
     cls();
     int uInp;
     int mLoop = 0;
-    
+
     while (mLoop != 1)
-    {   
+    {
         cout << "Welcome to " << gameName << "\nVersion: " << gameVersion << "\n";
         cout << "================================================\n";
         cout << "| 1 = New game | 2 = Load game | 3 = Save game |\n";
@@ -98,7 +110,7 @@ void mainMenu()
 
             case 2:
                 //TODO: Load a game.
-                prompt("Not implemented yet, please press enter.");
+                loadGame(); //References the function loadGame in game.cpp
                 break; //Also so this doesn't jump to other cases.
 
             case 1:

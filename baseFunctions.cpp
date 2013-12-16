@@ -3,6 +3,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <sstream>
 #include "game.h"
 #include "main.h"
 #include "baseFunctions.h"
@@ -16,9 +18,9 @@ void newGame(int codeAmt);
 
 baseFunctions::baseFunctions()
 {
-    
-    
-    
+
+
+
 }
 
 void cls()
