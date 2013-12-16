@@ -67,6 +67,7 @@ void mainMenu()
         if (cin.fail())
         {
             cin.clear(); cin.ignore(); cin.sync();
+            prompt("Invalid input, press enter.");
         }
 
         cls();

@@ -16,7 +16,6 @@ using std::string;
 using std::ifstream;
 using std::ofstream;
 using std::stringstream;
-//using std::atoir;
 
 void cls();
 void prompt(string tPrompt);
@@ -58,11 +57,11 @@ void newGame(int codeAmt)
 
     /* - Anything to be done behind the scenes while the game is loading should go here - */
     code = codeAmt;
+<<<<<<< HEAD
     ifstream checkSave("game.vatk");
+=======
+>>>>>>> upstream/master
 
-    //Check if the save exists, if it does, ask the user to overwrite it. If it doesn't, make it, and write to it.
-ifchksv:    if (checkSave)
-    //int getInput;
     ofstream save("game.vatk");
     /* - Loading area end - */
 
@@ -135,13 +134,23 @@ void loadGame()
     string saveCrypter;
     string saveOptimization;
     ifstream save;
+    
     int i = 0;
     ldgm: cout <<("Would you like to use the first save?\n");
     cout << ("1 = YES | 2 = NO | 3 = DIFFERENT SAVE | 4 = something>");
     cin >> i;
+    if (cin.fail())
+    {
+        cin.clear(); cin.ignore(); cin.sync();
+        prompt("Invalid input, press enter.");
+        cls();
+        loadGame();
+    }
     cls();
+    
     switch(i)
     {
+<<<<<<< HEAD
     case 1:
         save.open("game.vatk");
         getline(save,saveCode);
@@ -173,6 +182,43 @@ void loadGame()
         prompt("Invalid entry! Press enter to return to the load menu!");
         cls();
         goto ldgm;
+=======
+        case 1:
+            save.open("saves.vatk");
+            getline(save,saveCode);
+            getline(save,saveSpeedOfDestruction);
+            getline(save,saveSpreadRate);
+            getline(save,saveStealth);
+            getline(save,saveCrypter);
+            getline(save,saveOptimization);
+            stringIntConverter(saveCode, saveSpeedOfDestruction, saveSpreadRate, saveStealth, saveCrypter, saveOptimization);
+            save.close();
+            cls();
+            break;
+            
+        case 2:
+            prompt("Press enter to go back to the main menu!");
+            cls();
+            break;
+            
+        case 3:
+            prompt("I'm under development too!Press enter to go back to the main menu!");
+            cls();
+            break;
+            
+        case 4:
+            save.open ("saves.vatk");
+            getline(save,saveCode);
+            cout << saveCode << "\n";
+            save.close();
+            cls();
+            break;
+            
+        default:
+            prompt("Invalid entry! Press enter to return to the load menu!");
+            cls();
+            goto ldgm;
+>>>>>>> upstream/master
     }
 }
 
@@ -184,12 +230,14 @@ void stringIntConverter(string code, string speedOfDestruction, string spreadRat
     int loadStealth = 0;
     int loadCrypter = 0;
     int loadOptimization = 0;
+    
     stringstream convert(code);
     stringstream convert2(speedOfDestruction);
     stringstream convert3(spreadRate);
     stringstream convert4(stealth);
     stringstream convert5(crypter);
     stringstream convert6(optimization);
+    
     convert >> loadCode;
     convert2 >> loadSpeedOfDestruction;
     convert3 >> loadSpreadRate;
