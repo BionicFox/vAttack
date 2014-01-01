@@ -26,23 +26,13 @@ void loadGame();
 string gameName = "vAttack";
 string gameVersion = "Alpha 0.1.0";
 
-int exitCode;
 string line;
 ifstream information;
 
 int main()
 {
     cout << "Loading...\n";
-
     mainMenu();
-
-    if (exitCode == 1)
-    {
-        return 0;
-    } else
-        {
-            return 1;
-        }
 
     return 0;
 }
@@ -104,15 +94,12 @@ void mainMenu()
                 } else { prompt("Unable to open file. Press enter to return to main menu."); information.close(); break; }
 
             case 3:
-                //TODO: Save the game.
-                //All this does right now is tell the user that this isn't made yet and throw them at the menu after they press enter.
-                prompt("Not implemented yet, please press enter.");
-                break; //So this doesn't jump to other cases.
+                saveGame();
+                break;
 
             case 2:
-                //TODO: Load a game.
-                loadGame(); //References the function loadGame in game.cpp
-                break; //Also so this doesn't jump to other cases.
+                loadGame();
+                break;
 
             case 1:
                 newGame(10);
