@@ -58,11 +58,8 @@ int input(string iPrompt, int i)
     cout << "\n";
 }
 
-bool fileExists(string fileName)
+bool fileExists(const char *fileName)
 {
-    ifstream file(fileName.c_str());
-    if (!file)
-    {
-        return 0;
-    } else { return 1; }
+    ifstream file(fileName);
+    return file;
 }

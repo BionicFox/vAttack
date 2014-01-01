@@ -21,7 +21,11 @@ void prompt(string tPrompt);
 void newGame(int codeAmt);
 void mainMenu();
 void loadGame();
+<<<<<<< HEAD
 void saveGame();
+=======
+void saveGame(); 
+>>>>>>> upstream/master
 
 //Variables and files.
 string gameName = "vAttack";
@@ -49,7 +53,7 @@ void mainMenu()
         cout << "Welcome to " << gameName << "\nVersion: " << gameVersion << "\n";
         cout << "================================================\n";
         cout << "| 1 = New game | 2 = Load game | 3 = Save game |\n";
-        cout << "|   4 = Help   |   5 = About   |   9 = Exit.   |\n";
+        cout << "|   4 = Help   |   5 = About   |   9 = Exit    |\n";
         cout << "================================================\n";
         cout << "Main > ";
         cin >> uInp;

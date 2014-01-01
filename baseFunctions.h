@@ -8,7 +8,7 @@ class baseFunctions
         void prompt();
         void cls();
         int input(std::string iPrompt, int i);
-        bool fileExists(std::string fileName);
+        bool fileExists(const char *fileName);
     protected:
     private:
 };

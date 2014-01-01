@@ -24,7 +24,7 @@ void stringIntConverter(string Code, string speedOfDestruction, string spreadRat
 int input(string iPrompt, int i);
 void saveGame();
 void loadGame();
-bool fileExists(string fileExists);
+bool fileExists(const char *fileName);
 
 //Initialize the saves.
 int sLoop = 0;
@@ -50,20 +50,23 @@ game::game()
 
 void newGame(int codeAmt)
 {
-    int getInput;
     //Start a new game.
     cls();
     cout << "Loading...\n";
 
     /* - Anything to be done behind the scenes while the game is loading should go here - */
     code = codeAmt;
+<<<<<<< HEAD
     ifstream checkSave("game.vatk");
 
     ofstream save("game.vatk");
+=======
+    int getInput;
+>>>>>>> upstream/master
     /* - Loading area end - */
 
     cout << "Starting a new game will overwrite any currently saved game. Continue?\n";
-    cout << "| 1 = YES | 2 = NO |\n" << "Overwrite? > ";
+    cout << "| 1 = YES  |  2 = NO  |\n" << "Overwrite? > ";
     cin >> getInput;
 	if (cin.fail())
 	{
@@ -74,24 +77,30 @@ void newGame(int codeAmt)
 
     if (getInput == 1)
     {
+        cls();
+        cout << "Saving...\n";
 		saveGame();
+<<<<<<< HEAD
     }
 
     cout << "Save created.\n";
     prompt("Feature in progress.");
     cls();
+=======
+        cout << "Save created.\n";
+        prompt("Feature in progress.");
+        cls();
+    }  else
+        {
+            mainMenu();
+        }
+>>>>>>> upstream/master
 
-    mainMenu();
 }
 
 void saveGame()
 {
     //Save the game.
-
-
-    cls();
-    cout << "Saving...\n";
-
     if (fileExists("game.vatk"))
     {
         remove("game.vatk");
@@ -108,12 +117,11 @@ void saveGame()
             save.close();
             mainMenu();
         }
-
 }
 
 void loadGame()
 {
-    //Load the game. In developemnt by BionicFox c:
+    //Load the game. In developemnt by BionicFag c:
     string saveCode;
     string saveSpeedOfDestruction;
     string saveSpreadRate;
