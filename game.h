@@ -6,6 +6,7 @@ class game
     public:
         game();
         void loadGame();
+        void saveGame();
     protected:
     private:
 };

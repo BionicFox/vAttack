@@ -64,27 +64,17 @@ void newGame(int codeAmt)
     cout << "Starting a new game will overwrite any currently saved game. Continue?\n";
     cout << "| 1 = YES | 2 = NO |\n" << "Overwrite? > ";
     cin >> getInput;
+	if (cin.fail())
+	{
+		cin.clear(); cin.ignore(); cin.sync();
+        prompt("Invalid input, press enter.");
+		cls();
+	}
 
     if (getInput == 1)
     {
-        if (fileExists("game.vatk"))
-        {
-            ofstream save("game.vatk");
-            save.close();
-            remove("game.vatk");
-            saveGame();
-        } else
-            {
-                ofstream save("game.vatk");
-                save.close();
-                saveGame();
-            }
-    } else
-        {
-            ofstream save("game.vatk");
-            save.close();
-            mainMenu();
-        }
+		saveGame();
+    } 
 
     cout << "Save created.\n";
     prompt("Feature in progress.");
