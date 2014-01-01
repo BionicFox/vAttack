@@ -75,7 +75,7 @@ void newGame(int codeAmt)
     if (getInput == 1)
     {
 		saveGame();
-    } 
+    }
 
     cout << "Save created.\n";
     prompt("Feature in progress.");
@@ -158,9 +158,15 @@ void loadGame()
         cls();
         break;
     case 4:
-        save.open ("game.vatk");
+        save.open("game.vatk");
         getline(save,saveCode);
-        cout << saveCode << "\n";
+        getline(save,saveSpeedOfDestruction);
+        getline(save,saveSpreadRate);
+        getline(save,saveStealth);
+        getline(save,saveCrypter);
+        getline(save,saveOptimization);
+        cout << saveCode.substr(5,6) <<"\n";
+        prompt("Press enter to continue");
         save.close();
         cls();
         break;
@@ -171,7 +177,7 @@ void loadGame()
     }
 }
 
-void stringIntConverter(string code, string speedOfDestruction, string spreadRate, string stealth, string crypter, string optimization)
+void stringIntConverter(string iCode, string iSpeedOfDestruction, string iSpreadRate, string iStealth, string iCrypter, string iOptimization)
 {
     int loadCode;
     int loadSpeedOfDestruction;
@@ -179,16 +185,19 @@ void stringIntConverter(string code, string speedOfDestruction, string spreadRat
     int loadStealth;
     int loadCrypter;
     int loadOptimization;
-    string saveCode = code.substr(7, 8);
-    string saveSpeedOfDestruction = speedOfDestruction.substr(13, 14);
-    string saveSpreadRate = spreadRate.substr(21, 22);
+    string saveCode = iCode.substr(5, 6);
+    string saveSpeedOfDestruction = iSpeedOfDestruction.substr(11, 12);
+    string saveSpreadRate = iSpreadRate.substr(19, 20);
+    string saveStealth = iStealth.substr(8,9);
+    string saveCrypter = iCrypter.substr(8,9);
+    string saveOptimization = iOptimization.substr(13,14);
 
-    stringstream convert(code.substr(7, 8));
-    stringstream convert2(speedOfDestruction.substr(13, 14));
-    stringstream convert3(spreadRate.substr(21, 22));
-    stringstream convert4(stealth.substr(10, 11));
-    stringstream convert5(crypter.substr(10, 11));
-    stringstream convert6(optimization.substr(15, 16));
+    stringstream convert(saveCode);
+    stringstream convert2(saveSpeedOfDestruction);
+    stringstream convert3(saveSpreadRate);
+    stringstream convert4(saveStealth);
+    stringstream convert5(saveCrypter);
+    stringstream convert6(saveOptimization);
 
     convert >> loadCode;
     convert2 >> loadSpeedOfDestruction;
@@ -196,6 +205,11 @@ void stringIntConverter(string code, string speedOfDestruction, string spreadRat
     convert4 >> loadStealth;
     convert5 >> loadCrypter;
     convert6 >> loadOptimization;
-    cout << loadCode << ", " << loadSpeedOfDestruction << ", " << loadSpreadRate << ", " << loadStealth << ", " << loadCrypter << ", " << loadOptimization << "\n";
-    prompt("Press enter to continue");
+    code = loadCode;
+    speedOfDestruction = loadSpeedOfDestruction;
+    spreadRate = loadSpreadRate;
+    stealth = loadStealth;
+    crypter = loadCrypter;
+    optimization = loadOptimization;
+    prompt("Game loaded. Press enter to continue");
 }

@@ -21,6 +21,7 @@ void prompt(string tPrompt);
 void newGame(int codeAmt);
 void mainMenu();
 void loadGame();
+void saveGame();
 
 //Variables and files.
 string gameName = "vAttack";
