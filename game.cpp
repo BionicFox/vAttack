@@ -56,13 +56,7 @@ void newGame(int codeAmt)
 
     /* - Anything to be done behind the scenes while the game is loading should go here - */
     code = codeAmt;
-<<<<<<< HEAD
-    ifstream checkSave("game.vatk");
-
-    ofstream save("game.vatk");
-=======
     int getInput;
->>>>>>> upstream/master
     /* - Loading area end - */
 
     cout << "Starting a new game will overwrite any currently saved game. Continue?\n";
@@ -80,13 +74,6 @@ void newGame(int codeAmt)
         cls();
         cout << "Saving...\n";
 		saveGame();
-<<<<<<< HEAD
-    }
-
-    cout << "Save created.\n";
-    prompt("Feature in progress.");
-    cls();
-=======
         cout << "Save created.\n";
         prompt("Feature in progress.");
         cls();
@@ -94,7 +81,6 @@ void newGame(int codeAmt)
         {
             mainMenu();
         }
->>>>>>> upstream/master
 
 }
 
@@ -132,7 +118,7 @@ void loadGame()
 
     int i = 0;
     ldgm: cout <<("Would you like to use the first save?\n");
-    cout << ("1 = YES | 2 = NO | 3 = DIFFERENT SAVE | 4 = something>");
+    cout << ("1 = YES | 2 = NO>");
     cin >> i;
     if (cin.fail())
     {
@@ -159,23 +145,6 @@ void loadGame()
         break;
     case 2:
         prompt("Press enter to go back to the main menu!");
-        cls();
-        break;
-    case 3:
-        prompt("I'm under development too!Press enter to go back to the main menu!");
-        cls();
-        break;
-    case 4:
-        save.open("game.vatk");
-        getline(save,saveCode);
-        getline(save,saveSpeedOfDestruction);
-        getline(save,saveSpreadRate);
-        getline(save,saveStealth);
-        getline(save,saveCrypter);
-        getline(save,saveOptimization);
-        cout << saveCode.substr(5,6) <<"\n";
-        prompt("Press enter to continue");
-        save.close();
         cls();
         break;
     default:

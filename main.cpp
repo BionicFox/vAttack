@@ -21,11 +21,7 @@ void prompt(string tPrompt);
 void newGame(int codeAmt);
 void mainMenu();
 void loadGame();
-<<<<<<< HEAD
 void saveGame();
-=======
-void saveGame(); 
->>>>>>> upstream/master
 
 //Variables and files.
 string gameName = "vAttack";
